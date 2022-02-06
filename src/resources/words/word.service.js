@@ -3,9 +3,11 @@ const wordRepo = require('./word.db.repository');
 const getAll = async conditions => wordRepo.getAll(conditions);
 
 const get = async wordId => {
-  const word = await wordRepo.get(wordId);
-
-  return word;
+  return await wordRepo.get(wordId);
 };
 
-module.exports = { getAll, get };
+const getAllWords = async () => {
+  return await wordRepo.getAllWords();
+};
+
+module.exports = { getAll, get, getAllWords };

@@ -8,6 +8,10 @@ const getAll = async conditions => {
   return Word.find({ group, page });
 };
 
+const getAllWords = async () => {
+  return Word.find();
+};
+
 const get = async id => {
   const word = await Word.findOne({ _id: id });
   if (!word) {
@@ -16,4 +20,4 @@ const get = async id => {
   return word;
 };
 
-module.exports = { getAll, get };
+module.exports = { getAll, get, getAllWords };

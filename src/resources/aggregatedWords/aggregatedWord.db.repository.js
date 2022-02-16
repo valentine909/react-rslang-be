@@ -74,7 +74,7 @@ const getAll = async (userId, group, page, perPage, filter) => {
   }
   const facet = {
     $facet: {
-      paginatedResults: [{ $skip: page * perPage }, { $limit: perPage }],
+      paginatedResults: [{ $skip: 0 }, { $limit: perPage }],
       totalCount: [
         {
           $count: 'count'

@@ -12,6 +12,9 @@ router.get('/', async (req, res) => {
 
 router.get('/:wordId', validator(wordId, 'params'), async (req, res) => {
   const word = await userWordService.get(req.params.wordId, req.userId);
+  if (!word) {
+    res.status(404).send('No such word for user');
+  }
   res.status(OK).send(word.toResponse());
 });
 

@@ -6,12 +6,7 @@ const MONGO_ENTITY_EXISTS_ERROR_CODE = 11000;
 const getAll = async userId => UserWord.find({ userId });
 
 const get = async (wordId, userId) => {
-  const userWord = await UserWord.findOne({ wordId, userId });
-  if (!userWord) {
-    throw new NOT_FOUND_ERROR(ENTITY_NAME, { wordId, userId });
-  }
-
-  return userWord;
+  return UserWord.findOne({ wordId, userId });
 };
 
 const save = async (wordId, userId, userWord) => {

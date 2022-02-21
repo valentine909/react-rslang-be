@@ -8,8 +8,8 @@ const { BAD_REQUEST_ERROR } = require('../../errors/appErrors');
 const extractQueryParam = require('../../utils/getQueryNumberParameter');
 
 router.get('/', async (req, res) => {
-  const perPage = extractQueryParam(req.query.wordsPerPage, 10);
-  const page = extractQueryParam(req.query.page, 0);
+  const perPage = extractQueryParam(req.query.wordsPerPage, 20);
+  const page = extractQueryParam(req.query.page);
   const group = extractQueryParam(req.query.group);
 
   if ((req.query.group && isNaN(group)) || isNaN(page) || isNaN(perPage)) {

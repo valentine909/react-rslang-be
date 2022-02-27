@@ -4,7 +4,7 @@ const router = require('express').Router({ mergeParams: true });
 const { wordId } = require('../../utils/validation/schemas');
 const { validator } = require('../../utils/validation/validator');
 const aggregatedWordsService = require('./aggregatedWord.service');
-const { BAD_REQUEST_ERROR } = require('../../errors/appErrors');
+// const { BAD_REQUEST_ERROR } = require('../../errors/appErrors');
 const extractQueryParam = require('../../utils/getQueryNumberParameter');
 
 router.get('/', async (req, res) => {
@@ -12,11 +12,11 @@ router.get('/', async (req, res) => {
   const page = extractQueryParam(req.query.page);
   const group = extractQueryParam(req.query.group);
 
-  if ((req.query.group && isNaN(group)) || isNaN(page) || isNaN(perPage)) {
-    throw new BAD_REQUEST_ERROR(
-      'Wrong query parameters: the group, page and words-per-page numbers should be valid integers'
-    );
-  }
+  // if ((req.query.group && isNaN(group)) || isNaN(page) || isNaN(perPage)) {
+  //   throw new BAD_REQUEST_ERROR(
+  //     'Wrong query parameters: the group, page and words-per-page numbers should be valid integers'
+  //   );
+  // }
 
   const filter = req.query.filter ? JSON.parse(req.query.filter) : null;
 
